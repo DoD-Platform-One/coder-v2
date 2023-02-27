@@ -5,7 +5,7 @@ Coder moves developer workspaces to your cloud and centralizes their creation an
 ## Upstream References
 * <https://coder.com>
 
-* <https://github.com/coder/coder/helm/tree/main/helm>
+* <https://github.com/coder/coder/tree/main/helm>
 
 ## Learn More
 * [Application Overview](docs/overview.md)
