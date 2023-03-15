@@ -8,7 +8,7 @@ coder:
   # coder.image -- The image to use for Coder.
   image:
     # coder.image.repo -- The repository of the image.
-    repo: "registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2:0.17.4"
+    repo: "registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2:0.19.2"
     # coder.image.tag -- The tag of the image, defaults to {{.Chart.AppVersion}}
     # if not set. If you're using the chart directly from git, the default
     # app version will not work and you'll need to set this value. The helm
@@ -33,6 +33,10 @@ coder:
   # coder.annotations -- The Deployment annotations. See:
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   annotations: {}
+
+  # coder.labels -- The Deployment labels. See:
+  # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+  labels: {}
 
   # coder.serviceAccount -- Configuration for the automatically created service
   # account. Creation of the service account cannot be disabled.
