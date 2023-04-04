@@ -13,7 +13,7 @@ coder:
     # if not set. If you're using the chart directly from git, the default
     # app version will not work and you'll need to set this value. The helm
     # chart helpfully fails quickly in this case.
-    tag: "0.19.2"
+    tag: "0.21.1"
     # coder.image.pullPolicy -- The pull policy to use for the image. See:
     # https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
     pullPolicy: IfNotPresent
@@ -33,6 +33,10 @@ coder:
   # coder.annotations -- The Deployment annotations. See:
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   annotations: {}
+
+  # coder.podAnnotations -- The Coder pod annotations. See:
+  # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
 
   # coder.labels -- The Deployment labels. See:
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
@@ -119,6 +123,18 @@ coder:
     # will be automatically mounted into the pod if specified, and the correct
     # "CODER_TLS_*" environment variables will be set for you.
     secretNames: []
+
+  # coder.lifecycle -- container lifecycle handlers for the Coder container, allowing
+  # for lifecycle events such as postStart and preStop events
+  # See: https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
+  lifecycle:
+    {}
+    # postStart:
+    #   exec:
+    #     command: ["/bin/sh", "-c", "echo postStart"]
+    # preStop:
+    #   exec:
+    #     command: ["/bin/sh","-c","echo preStart"]
 
   # coder.resources -- The resources to request for Coder. These are optional
   # and are not set by default.
