@@ -6,6 +6,10 @@ and notably (compared to Coder Classic) does not include a database server.
 
 ## Getting Started
 
+> **Warning**: The main branch in this repository does not represent the
+> latest release of Coder. Please reference our installation docs for
+> instructions on a tagged release.
+
 View
 [our docs](https://coder.com/docs/coder-oss/latest/install/kubernetes)
 for detailed installation instructions.
