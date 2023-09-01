@@ -4,6 +4,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.27.3] - 2023-09-01
+### Changed
+- Update to 0.27.3
+
 ## [0.26.1] - 2023-07-19
 ### Changed
 - Update to 0.26.1

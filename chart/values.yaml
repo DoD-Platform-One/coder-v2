@@ -29,7 +29,7 @@ coder:
     # if not set. If you're using the chart directly from git, the default
     # app version will not work and you'll need to set this value. The helm
     # chart helpfully fails quickly in this case.
-    tag: "0.26.1"
+    tag: "0.27.3"
     # coder.image.pullPolicy -- The pull policy to use for the image. See:
     # https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
     pullPolicy: IfNotPresent
@@ -276,6 +276,9 @@ coder:
   # for customizing the location of the `coder` binary in your image.
   command:
     - /opt/coder
+
+  # coder.commandArgs -- Set arguments for the entrypoint command of the Coder pod.
+  commandArgs: []
 
 # extraTemplates -- Array of extra objects to deploy with the release. Strings
 # are evaluated as a template and can use template expansions and functions. All
