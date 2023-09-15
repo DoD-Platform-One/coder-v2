@@ -1,13 +1,13 @@
 # coder
 
-![Version: 0.27.3](https://img.shields.io/badge/Version-0.27.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.27.3](https://img.shields.io/badge/AppVersion-0.27.3-informational?style=flat-square)
+![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.2](https://img.shields.io/badge/AppVersion-2.0.2-informational?style=flat-square)
 
 Remote development environments on your infrastructure
 
 ## Upstream References
 * <https://github.com/coder/coder>
 
-* <https://github.com/coder/coder/tree/main/helm>
+* <https://github.com/coder/coder/tree/main/helm/coder>
 
 ## Learn More
 * [Application Overview](docs/overview.md)
@@ -37,11 +37,11 @@ helm install coder chart/
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| coder | object | `{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"labelSelector":{"matchExpressions":[{"key":"app.kubernetes.io/instance","operator":"In","values":["coder"]}]},"topologyKey":"kubernetes.io/hostname"},"weight":1}]}},"annotations":{},"certs":{"secrets":[]},"command":["/opt/coder"],"commandArgs":[],"env":[],"image":{"pullPolicy":"IfNotPresent","pullSecrets":[],"repo":"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2","tag":"0.27.3"},"ingress":{"annotations":{},"className":"","enable":false,"host":"","tls":{"enable":false,"secretName":"","wildcardSecretName":""},"wildcardHost":""},"initContainers":[],"labels":{},"lifecycle":{},"nodeSelector":{},"podAnnotations":{},"podLabels":{},"replicaCount":1,"resources":{},"securityContext":{"allowPrivilegeEscalation":false,"readOnlyRootFilesystem":null,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}},"service":{"annotations":{},"enable":true,"externalTrafficPolicy":"Cluster","loadBalancerIP":"","sessionAffinity":"ClientIP","type":"LoadBalancer"},"serviceAccount":{"annotations":{},"enableDeployments":false,"name":"coder","workspacePerms":true},"tls":{"secretNames":[]},"tolerations":{},"volumeMounts":[],"volumes":[],"workspaceProxy":false}` | Primary configuration for `coder server`. |
-| coder.env | list | `[]` | The environment variables to set for Coder. These can be used to configure all aspects of `coder server`. Please see `coder server --help` for information about what environment variables can be set. Note: The following environment variables are set by default and cannot be overridden: - CODER_HTTP_ADDRESS: set to 0.0.0.0:8080 and cannot be changed. - CODER_TLS_ADDRESS: set to 0.0.0.0:8443 if tls.secretName is not empty. - CODER_TLS_ENABLE: set if tls.secretName is not empty. - CODER_TLS_CERT_FILE: set if tls.secretName is not empty. - CODER_TLS_KEY_FILE: set if tls.secretName is not empty. - CODER_PROMETHEUS_ADDRESS: set to 0.0.0.0:6060 and cannot be changed.   Prometheus must still be enabled by setting CODER_PROMETHEUS_ENABLE. - KUBE_POD_IP - CODER_DERP_SERVER_RELAY_URL  We will additionally set CODER_ACCESS_URL if unset to the cluster service URL. |
-| coder.image | object | `{"pullPolicy":"IfNotPresent","pullSecrets":[],"repo":"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2","tag":"0.27.3"}` | The image to use for Coder. |
+| coder | object | `{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"labelSelector":{"matchExpressions":[{"key":"app.kubernetes.io/instance","operator":"In","values":["coder"]}]},"topologyKey":"kubernetes.io/hostname"},"weight":1}]}},"annotations":{},"certs":{"secrets":[]},"command":["/opt/coder"],"commandArgs":[],"env":[],"image":{"pullPolicy":"IfNotPresent","pullSecrets":[],"repo":"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2","tag":"2.0.2"},"ingress":{"annotations":{},"className":"","enable":false,"host":"","tls":{"enable":false,"secretName":"","wildcardSecretName":""},"wildcardHost":""},"initContainers":[],"labels":{},"lifecycle":{},"nodeSelector":{},"podAnnotations":{},"podLabels":{},"replicaCount":1,"resources":{},"securityContext":{"allowPrivilegeEscalation":false,"readOnlyRootFilesystem":null,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}},"service":{"annotations":{},"enable":true,"externalTrafficPolicy":"Cluster","loadBalancerIP":"","sessionAffinity":"ClientIP","type":"LoadBalancer"},"serviceAccount":{"annotations":{},"enableDeployments":true,"name":"coder","workspacePerms":true},"tls":{"secretNames":[]},"tolerations":{},"volumeMounts":[],"volumes":[],"workspaceProxy":false}` | Primary configuration for `coder server`. |
+| coder.env | list | `[]` | The environment variables to set for Coder. These can be used to configure all aspects of `coder server`. Please see `coder server --help` for information about what environment variables can be set. Note: The following environment variables are set by default and cannot be overridden: - CODER_HTTP_ADDRESS: set to 0.0.0.0:8080 and cannot be changed. - CODER_TLS_ADDRESS: set to 0.0.0.0:8443 if tls.secretName is not empty. - CODER_TLS_ENABLE: set if tls.secretName is not empty. - CODER_TLS_CERT_FILE: set if tls.secretName is not empty. - CODER_TLS_KEY_FILE: set if tls.secretName is not empty. - CODER_PROMETHEUS_ADDRESS: set to 0.0.0.0:2112 and cannot be changed.   Prometheus must still be enabled by setting CODER_PROMETHEUS_ENABLE. - KUBE_POD_IP - CODER_DERP_SERVER_RELAY_URL  We will additionally set CODER_ACCESS_URL if unset to the cluster service URL. |
+| coder.image | object | `{"pullPolicy":"IfNotPresent","pullSecrets":[],"repo":"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2","tag":"2.0.2"}` | The image to use for Coder. |
 | coder.image.repo | string | `"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"` | The repository of the image. |
-| coder.image.tag | string | `"0.27.3"` | The tag of the image, defaults to {{.Chart.AppVersion}} if not set. If you're using the chart directly from git, the default app version will not work and you'll need to set this value. The helm chart helpfully fails quickly in this case. |
+| coder.image.tag | string | `"2.0.2"` | The tag of the image, defaults to {{.Chart.AppVersion}} if not set. If you're using the chart directly from git, the default app version will not work and you'll need to set this value. The helm chart helpfully fails quickly in this case. |
 | coder.image.pullPolicy | string | `"IfNotPresent"` | The pull policy to use for the image. See: https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy |
 | coder.image.pullSecrets | list | `[]` | The secrets used for pulling the Coder image from a private registry. |
 | coder.initContainers | list | `[]` | Init containers for the deployment. See: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ |
@@ -49,9 +49,9 @@ helm install coder chart/
 | coder.labels | object | `{}` | The Deployment labels. See: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ |
 | coder.podAnnotations | object | `{}` | The Coder pod annotations. See: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | coder.podLabels | object | `{}` | The Coder pod labels. See: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ |
-| coder.serviceAccount | object | `{"annotations":{},"enableDeployments":false,"name":"coder","workspacePerms":true}` | Configuration for the automatically created service account. Creation of the service account cannot be disabled. |
+| coder.serviceAccount | object | `{"annotations":{},"enableDeployments":true,"name":"coder","workspacePerms":true}` | Configuration for the automatically created service account. Creation of the service account cannot be disabled. |
 | coder.serviceAccount.workspacePerms | bool | `true` | Whether or not to grant the coder service account permissions to manage workspaces. This includes permission to manage pods and persistent volume claims in the deployment namespace.  It is recommended to keep this on if you are using Kubernetes templates within Coder. |
-| coder.serviceAccount.enableDeployments | bool | `false` | Provides the service account permission to manage Kubernetes deployments. |
+| coder.serviceAccount.enableDeployments | bool | `true` | Provides the service account permission to manage Kubernetes deployments. |
 | coder.serviceAccount.annotations | object | `{}` | The Coder service account annotations. |
 | coder.serviceAccount.name | string | `"coder"` | The service account name |
 | coder.securityContext | object | `{"allowPrivilegeEscalation":false,"readOnlyRootFilesystem":null,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}}` | Fields related to the container's security context (as opposed to the pod). Some fields are also present in the pod security context, in which case these values will take precedence. |
@@ -93,6 +93,8 @@ helm install coder chart/
 | coder.ingress.tls.wildcardSecretName | string | `""` | The name of the TLS secret to use for the wildcard host. |
 | coder.command | list | `["/opt/coder"]` | The command to use when running the Coder container. Used for customizing the location of the `coder` binary in your image. |
 | coder.commandArgs | list | `[]` | Set arguments for the entrypoint command of the Coder pod. |
+| provisionerDaemon | object | `{"pskSecretName":""}` | Configuration for external provisioner daemons.  This is an Enterprise feature. Contact sales@coder.com. |
+| provisionerDaemon.pskSecretName | string | `""` | The name of the Kubernetes secret that contains the Pre-Shared Key (PSK) to use to authenticate external provisioner daemons with Coder.  The secret must be in the same namespace as the Helm deployment, and contain an item called "psk" which contains the pre-shared key. |
 | extraTemplates | string | `nil` | Array of extra objects to deploy with the release. Strings are evaluated as a template and can use template expansions and functions. All other objects are used as yaml. |
 
 ## Contributing
