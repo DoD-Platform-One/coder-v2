@@ -35,8 +35,8 @@ coder:
     pullPolicy: IfNotPresent
     # coder.image.pullSecrets -- The secrets used for pulling the Coder image from
     # a private registry.
-    pullSecrets: []
-    #  - name: "pull-secret"
+    pullSecrets:
+      - name: "private-registry"
 
   # coder.initContainers -- Init containers for the deployment. See:
   # https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
