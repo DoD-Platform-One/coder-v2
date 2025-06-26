@@ -4,8 +4,8 @@ description: Remote development environments on your infrastructure
 home: https://github.com/coder/coder
 
 type: application
-version: "2.20.3"
-appVersion: "2.20.3"
+version: 2.22.1-bb.0
+appVersion: 2.22.1
 
 # Coder has a hard requirement on Kubernetes 1.19, as this version introduced
 # the networking.k8s.io/v1 API.
@@ -22,6 +22,7 @@ maintainers:
     email: support@coder.com
     url: https://coder.com/contact
 dependencies:
-  - name: libcoder
-    version: 0.1.0
-    repository: file://./charts/libcoder
+  - name: coder
+    version: 2.22.1
+    repository: https://helm.coder.com/v2
+    alias: upstream
