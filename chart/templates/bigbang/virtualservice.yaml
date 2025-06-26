@@ -1,0 +1,29 @@
+{{- if .Values.istio.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: coder
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ include "coder.name" . }}
+    helm.sh/chart: {{ include "coder.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/part-of: coder
+    app.kubernetes.io/component: coder
+spec:
+  gateways:
+  {{- range .Values.istio.coder.gateways }}
+    - {{ . }}
+  {{- end }}
+  hosts:
+  {{- range .Values.istio.coder.hosts }}
+    - {{ tpl . $}}
+  {{- end }}
+  http:
+  - route:
+    - destination:
+        port:
+          number: 80
+        host: coder.{{ .Release.Namespace }}.svc.cluster.local
+{{- end }}
