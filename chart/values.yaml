@@ -30,9 +30,12 @@ monitoring:
   enabled: false
   namespace: monitoring
 
-
 # Values in `upstream` to pass to the coder chart
 upstream:
+
+  # override back to 'coder' so the chart doesn't refer to itself as 'upstream'
+  nameOverride: coder
+
   # coder -- Primary configuration for `coder server`.
   coder:
     # coder.env -- The environment variables to set for Coder. These can be used
