@@ -4,7 +4,7 @@ description: Remote development environments on your infrastructure
 home: https://github.com/coder/coder
 
 type: application
-version: 2.22.1-bb.0
+version: 2.22.1-bb.1
 appVersion: 2.22.1
 
 # Coder has a hard requirement on Kubernetes 1.19, as this version introduced
@@ -26,3 +26,14 @@ dependencies:
     version: 2.22.1
     repository: https://helm.coder.com/v2
     alias: upstream
+annotations:
+  bigbang.dev/passthrough: "true"
+  bigbang.dev/passthrough-toplevel-key: upstream
+  bigbang.dev/maintenanceTrack: community_maintained
+  bigbang.dev/applicationVersions: |
+    - Coder: 2.22.1
+  helm.sh/images: |
+    - name: coder
+      image: registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2:2.22.1
+  bigbang.dev/upstreamReleaseNotesMarkdown: |
+    - [Find upstream chart's release notes and CHANGELOG here](https://coder.com/docs/install/releases)
