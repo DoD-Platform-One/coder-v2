@@ -1,6 +1,6 @@
 dependencies:
-- name: libcoder
-  repository: file://../libcoder
-  version: 0.1.0
-digest: sha256:5c9a99109258073b590a9f98268490ef387fde24c0c7c7ade9c1a8c7ef5e6e10
-generated: "2023-08-08T07:27:19.677972411Z"
+- name: coder
+  repository: https://helm.coder.com/v2
+  version: 2.24.3
+digest: sha256:d9f6fe0f6047aaaba9396c76adff6b1da529a54be7d2623d9731fff2129a9547
+generated: "2025-09-10T16:25:09.41532603Z"
